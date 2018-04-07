@@ -1,0 +1,23 @@
+<?php
+
+class week{
+    public $id;
+    public $day;
+    
+	public function insert(){
+
+    }
+    public function select(){  
+    
+     }
+    public function insert(){ 
+    
+      }
+    public function delete(){ 
+    
+      }
+    public function update(){ 
+        
+      }
+}
+?>
