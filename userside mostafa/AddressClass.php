@@ -6,11 +6,11 @@ class Address{
     public $name;
 
 	  public function insert(){
-    $DBObject = new DB();
-    $sql = "INSERT INTO address (parentid, name) VALUES ('".$this->parent_id."','".$this->name."')";
-    $DBObject->connect();
-     echo $DBObject->execute($sql);
-    $DBObject->disconnect();
+      $DBObject = new DB();
+      $sql = "INSERT INTO address (parentid, name) VALUES ('".$this->parent_id."','".$this->name."')";
+      $DBObject->connect();
+      $DBObject->execute($sql);
+      $DBObject->disconnect();
     }
 
     public function select(){  
@@ -18,10 +18,10 @@ class Address{
       $sql = "SELECT * from address";
       $DBObject->connect();
       $result = $DBObject->execute($sql);
-      $DBObject->disconnect();
-    while ($row = mysqli_fetch_array($result)){
-         echo $row['id'];
-     }
+      while ($row = mysqli_fetch_array($result)){
+        echo $row['id'];
+        echo $row['name'];
+      }
      $DBObject->disconnect();
      }
 
@@ -29,7 +29,7 @@ class Address{
       $DBObject = new DB();
       $sql = "DELETE FROM address WHERE address.id  = '".$id."'";
       $DBObject->connect();
-       $DBObject->execute($sql);
+      $DBObject->execute($sql);
       $DBObject->disconnect();
       }
       public function getAllRoots (){
