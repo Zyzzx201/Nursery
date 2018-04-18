@@ -1,6 +1,6 @@
 <?php
 require_once("db.php");
-class Parent{
+class parents{
     public $id;
     public $child_id;
     public $mother_id;

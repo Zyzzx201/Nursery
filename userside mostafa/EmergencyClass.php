@@ -2,16 +2,18 @@
 require_once("db.php");
 class emergency{
     public $id;
-    public $nationality;
-    public $address_id;
     public $main_id;
+    public $ecname;
+    public $ecnum;
+    public $ecaddress_id;
+    public $relation;
     //public $telnum;
     //public $mobile1;
-    public $maritalstatus_id;
+    public $extrainfo;
 
     public function insert(){
       $DBobject = new DB();
-      $sql = "INSERT INTO emergency(main_id, ecname, ecnum, ecaddress_id, relation, extrainfo) 
+      $sql = "INSERT INTO emergency(main_id, ecname, ecnum, ecaddress_id, relation, extrainfo)
       VALUES ('".$this->main_id."','".$this->ecname."','".$this->ecnum."','".$this->ecaddress_id."','".$this->relation."','".$this->extrainfo."')";
       $DBobject->connect();
       $DBobject->execute($sql);
@@ -24,12 +26,14 @@ class emergency{
       $result = $DBobject->execute($sql);
       while ($row = mysqli_fetch_array($result)){
           echo $row['id'];
-          echo $row['nationality'];
-          echo $row['address_id'];
           echo $row['main_id'];
+          echo $row['ecname'];
+          echo $row['ecnum'];
+          echo $row['ecaddress_id'];
           //echo $row['telnum'];
           //echo $row['mobile1'];
-          echo $row['maritalstatus_id'];
+          echo $row['relation'];
+          echo $row['extrainfo'];
       }
       $DBobject->disconnect();
      }
